@@ -1,6 +1,5 @@
 const assyncHandler = require("express-async-handler");
 const Gasto = require('../models/gastosModel');
-const { get } = require('mongoose')
 
 const getMovimientos = assyncHandler  (async (req, res) => {
     const movimientos = await Gasto.find({});
@@ -35,7 +34,7 @@ const deleteMovimiento = assyncHandler(async (req, res) => {
         res.status(404)
         throw new Error('Gasto no encontrado')
     } else {
-    await Gasto.deleteone(movimiento)
+    await Gasto.deleteOne({ _id: req.params.id })
     res.status(200).json({ "mensaje": `Movimiento ${req.params.id} eliminado` })
     }
 })  ;

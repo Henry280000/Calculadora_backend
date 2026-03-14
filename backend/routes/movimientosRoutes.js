@@ -1,14 +1,14 @@
 const express = require('express');
 const router = express.Router();
-const { getMovimientos, createMovimiento, deleteMovimiento } = require('../controllers/movimientosController');
+const { getMovimientos, addMovimiento, deleteMovimiento } = require('../controllers/movimientosControllers');
 
 //obtener movimientos
 router.get('/', getMovimientos);
 
 //agregar movimiento
-router.post('/', addMovimientos);
+router.post('/', addMovimiento);
 
 //eliminar movimiento
-router.delete('/:id', deleteMovimientos);
+router.delete('/:id', deleteMovimiento);
 
 module.exports = router;

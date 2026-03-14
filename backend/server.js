@@ -3,7 +3,7 @@
     const dotenv = require('dotenv').config()
     const connectDB = require('./config/db')
     const port = process.env.PORT || 5001
-    const { errorHandler } = require('./middleware/errorMiddleware')
+    const { errorHander } = require('./middleware/errorMiddleware')
     const cors = require('cors')
 
     connectDB()
@@ -21,7 +21,7 @@
     app.use(express.json());
     app.use("/api/movimientos", require('./routes/movimientosRoutes'));
 
-    app.use(errorHandler);
+    app.use(errorHander);
 
     app.listen(port, () => console.log(`Servidor iniciado en el puerto ${port}`))
 
